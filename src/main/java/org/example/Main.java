@@ -2,6 +2,7 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -21,12 +22,16 @@ public class Main {
                 females.add(person);
             }
         }
-
+        System.out.println("Imperative approach");
         for (Person female : females) {
             System.out.println(female);
         }
 
-
+        // Declarative approach
+        System.out.println("Declarative approach");
+        people.stream()
+                .filter(person -> Gender.FEMALE.equals(person.gender))
+                .forEach(System.out::println);
 
     }
     static class Person {
